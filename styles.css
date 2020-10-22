@@ -22,11 +22,8 @@ body {
   background-image: linear-gradient(#134d71, #78a7c6, #ffffff, #f7e4bf);
 }
 
-header{
-  color: #ffffff;
-  font-size: 200%;
-  font-weight: bold;
-  padding: 2%;
+a{
+  <linearGradient id="a"><stop offset="0" stop-color="#ff99b5"/><stop offset="1" stop-color="#ffdc68"/></linearGradient>
 }
 
 p {
