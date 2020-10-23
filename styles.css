@@ -16,44 +16,82 @@ html {
 }
 
 body {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
   font-family: 'Quicksand', sans-serif;
   text-align: center;
   background-image: linear-gradient(#134d71, #78a7c6, #ffffff, #f7e4bf);
 }
 
-a{
-  <linearGradient id="a"><stop offset="0" stop-color="#ff99b5"/><stop offset="1" stop-color="#ffdc68"/></linearGradient>
-}
-
-p {
+h1 {
+  height: 10vh;
+  width: 50vh;
+  margin: auto;
   color: #ffffff;
   font-size: 150%;
   font-weight: bold;
-  padding: 2%
+  padding-top: 2%
 }
 
-div {
-  height: 100px;
-  width: 525px;
+h2 {
+  height: 40px;
+  width: 50vh;
   margin: auto;
+  margin-bottom: 0px;
+  color: #ffffff;
+  font-size: 150%;
+  font-weight: bold;
+  padding-top: 2%
+}
+
+form {
+  align-self: center;
+  height: 10vh;
+  width: 50vh;
   background-color: #ffffff;
   border-radius: 10px;
 }
 
-.selection {
-  display: inline;
-  margin: auto;
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
-.getMessage {
-  display: block;
-  margin: auto;
+.affirmation {
 }
 
-.outputMessage { 
-  height: 100px;
-  width: 525px;
+.mantra {
+}
+
+.receive-message {
+  height: 30px;
+  width: 175px;
+  margin: auto;
+  color: #ffffff;
+  font-size: 1.4vh;
+  background-color: #134d71;
+  border-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+p {
+  display: flex;
+}
+
+.output-message { 
+  height: 15vh;
+  width: 70vh;
+  margin: auto;
+  margin-top: 10vh;
   background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  margin: center;
+}
+
+.meditation-icon {
   margin: auto;
+  height: 75px;
+  width: 200px;
 }
