@@ -5,19 +5,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      Self Care Center
-    </header>
-    <p>
+    <h1>
+      ✨ Self Care Center ✨
+    </h1>
+    <h2>
       Which type of message?
-    </p>
-    <div>
-      <button>
+    </h2>
+    <form>
+      <ul>
+        <label for="affirmation">
+          <input type="radio" class="affirmation" value="affirmation">
+          affirmation
+        </label>
+        <label for="mantra">
+          <input type="radio" class="mantra" value="mantra">
+          mantra
+        </label>
+      </ul>
+      <button class="receive-message">
+        Receive Message
       </button>
-    </div>
-    <div>
-      Placeholder output
-    </div>
+    </form>
+    <p class="output-message">
+      <img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg">
+    </p class="output-message">
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
