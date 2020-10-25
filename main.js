@@ -1,7 +1,11 @@
 //query selectors
 var radioInputs = document.querySelectorAll('input[name="choice"]');
-var receiveMessage = document.querySelector(".receive-message");
-var outputBox = document.querySelector(".output-box")
+var receiveMessage = document.querySelector('.receive-message');
+var outputBox = document.querySelector('.output-box');
+var allBtns = document.querySelectorAll('.btn');
+var backBtn = document.querySelector('.back');
+var deleteBtn = document.querySelector('.delete');
+
 
 var affirmations = ["I forgive myself and set myself free", "I believe I can be all that I want to be.", "I am in the process of becoming the best version of myself.", "I have the freedom & power to create the life I desire.", "I choose to be kind to myself and love myself unconditionally.", "My possibilities are endless.", "I am worthy of my dreams.", "I am enough.", "I deserve to be healthy and feel good.", "I am full of energy and vitality and my mind is calm and peaceful.", "Every day I am getting healthier and stronger.", "I honor my body by trusting the signals that it sends me.", "I manifest perfect health by making smart choices."]
 
@@ -10,6 +14,7 @@ var mantras = ["Breathing in, I send myself love. Breathing out, I send love to 
 //event listeners
 
 receiveMessage.addEventListener('click', returnMessage)
+backBtn.addEventListener('click', removeOutput)
 
 //functions
 
@@ -22,11 +27,29 @@ function returnMessage(event) {
 
   for (var i = 0; i < radioInputs.length; i++) {
     if (radioInputs[i].value === 'affirmations' && radioInputs[i].checked) {
+      removeAltBtns();
       return outputBox.innerText = affirmations[getRandomIndex(affirmations)];
     } else if (radioInputs[i].value === 'mantras' && radioInputs[i].checked) {
+      removeAltBtns();
       return outputBox.innerText = mantras[getRandomIndex(mantras)];
     }
   }
 
   return alert('YOU DIDNT CLICK A BUTTON!!! I HAVE NO PURPOSE!!!')
+}
+
+function removeAltBtns() {
+  backBtn.classList.remove('hidden');
+  deleteBtn.classList.remove('hidden');
+}
+
+function addAltBtns() {
+  backBtn.classList.add('hidden');
+  deleteBtn.classList.add('hidden');
+}
+
+function removeOutput() {
+  addAltBtns();
+
+  return outputBox.innerHTML =  '<img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg" alt="Meditation Icon" title="Meditation Icon"></img>';
 }

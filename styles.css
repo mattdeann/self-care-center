@@ -108,13 +108,16 @@ ul {
   width: 15vh;
 }
 
-.back .save .create {
-  height: 4vh;
-  width: 70vw;
+.alt-btns {
+  min-height: 15vh;
+  width: 20vw;
   font-size: 2px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column-reverse;
+}
+
+.create {
+  justify-self: flex-start;
 }
 
 
