@@ -15,6 +15,7 @@ var mantras = ["Breathing in, I send myself love. Breathing out, I send love to 
 
 receiveMessageBtn.addEventListener('click', returnMessage)
 backBtn.addEventListener('click', removeOutput)
+deleteBtn.addEventListener('click', deletePhrase)
 
 //functions
 
