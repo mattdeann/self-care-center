@@ -1,6 +1,6 @@
 //query selectors
 var radioInputs = document.querySelectorAll('input[name="choice"]');
-var receiveMessage = document.querySelector('.receive-message');
+var receiveMessageBtn = document.querySelector('.receive-message');
 var outputBox = document.querySelector('.output-box');
 var allBtns = document.querySelectorAll('.btn');
 var backBtn = document.querySelector('.back');
@@ -13,7 +13,7 @@ var mantras = ["Breathing in, I send myself love. Breathing out, I send love to 
 
 //event listeners
 
-receiveMessage.addEventListener('click', returnMessage)
+receiveMessageBtn.addEventListener('click', returnMessage)
 backBtn.addEventListener('click', removeOutput)
 
 //functions
@@ -27,10 +27,10 @@ function returnMessage(event) {
 
   for (var i = 0; i < radioInputs.length; i++) {
     if (radioInputs[i].value === 'affirmations' && radioInputs[i].checked) {
-      removeAltBtns();
+      addAltBtns();
       return outputBox.innerText = affirmations[getRandomIndex(affirmations)];
     } else if (radioInputs[i].value === 'mantras' && radioInputs[i].checked) {
-      removeAltBtns();
+      addAltBtns();
       return outputBox.innerText = mantras[getRandomIndex(mantras)];
     }
   }
@@ -38,18 +38,40 @@ function returnMessage(event) {
   return alert('YOU DIDNT CLICK A BUTTON!!! I HAVE NO PURPOSE!!!')
 }
 
-function removeAltBtns() {
+function addAltBtns() {
   backBtn.classList.remove('hidden');
   deleteBtn.classList.remove('hidden');
+  receiveMessageBtn.classList.add('hidden');
 }
 
-function addAltBtns() {
+function removeAltBtns() {
   backBtn.classList.add('hidden');
   deleteBtn.classList.add('hidden');
+  receiveMessageBtn.classList.remove('hidden');
 }
 
 function removeOutput() {
-  addAltBtns();
+  removeAltBtns();
 
   return outputBox.innerHTML =  '<img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg" alt="Meditation Icon" title="Meditation Icon"></img>';
+}
+
+function deletePhrase () {
+  var unwantedPhrase = outputBox.innerText
+
+  for (var i = 0; i < affirmations.length; i++) {
+    if (affirmations[i] === unwantedPhrase) {
+    affirmations.splice(i, 1);
+    } 
+  }
+
+  for (var i = 0; i < mantras.length; i++) {
+    if (mantras[i] === unwantedPhrase) {
+    mantras.splice(i, 1);
+    }
+  }
+
+  removeOutput();
+
+  alert(`That phrase won't bother you anymore, we sent it away for good.`)
 }
