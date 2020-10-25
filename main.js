@@ -69,4 +69,6 @@ function deletePhrase () {
     mantras.splice(i, 1);
     }
   }
+
+  removeOutput();
 }
