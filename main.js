@@ -1,7 +1,7 @@
 //query selectors
-var inputs = document.querySelectorAll("input");
-var receiveMessage = document.querySelector(".receive-message");
-var outputMessage = document.querySelector(".output-message")
+var radioInputs = document.querySelectorAll('input[type="radio"]');
+var receiveMessage = document.querySelector(".receive-message-button");
+var outputBox = document.querySelector(".output-box")
 
 var affirmations = ["I forgive myself and set myself free", "I believe I can be all that I want to be.", "I am in the process of becoming the best version of myself.", "I have the freedom & power to create the life I desire.", "I choose to be kind to myself and love myself unconditionally.", "My possibilities are endless.", "I am worthy of my dreams.", "I am enough.", "I deserve to be healthy and feel good.", "I am full of energy and vitality and my mind is calm and peaceful.", "Every day I am getting healthier and stronger.", "I honor my body by trusting the signals that it sends me.", "I manifest perfect health by making smart choices."]
 
@@ -13,23 +13,21 @@ receiveMessage.addEventListener('click', returnMessage)
 //functions
 
 function getRandomIndex(array) {
-  var randomIndex = Math.floor(Math.random * array.length);
+  return Math.floor(Math.random() * array.length);
 }
 
-function returnMessage() {
-  debugger
-  for (var i = 0; i < inputs.length; i++) {
-    if (inputs[i].value === true) {
-      getRandomIndex(inputs[i]);
-      console.log(inputs[i][randomIndex]);
-      outputMessage.innerHTML = `${inputs[i][randomIndex]}`
+function returnMessage(event) {
+  event.preventDefault();
+  for (var i = 0; i < radioInputs.length; i++) {
+    if (radioInputs[0].checked === false && radioInputs[1].checked === false) {
+      return alert('YOU DIDNT CLICK A BUTTON! I HAVE NO PURPOSE UNLESS YOU GIVE ME ONE HUMAN!!!')
+    } else if (radioInputs[i].value === 'affirmations') {
+        randomIndex = getRandomIndex(affirmations);
+      outputBox.innerText = affirmations[randomIndex];
+    } else if (radioInputs[i].value === 'mantras') {
+        randomIndex = getRandomIndex(mantras);
+      outputBox.innerText = mantras[randomIndex];
     }
   }
 }
-
-//if the affirmations button is selected, pull a random element from the affirmations/mantras array
-//  attach an event listener to the input, and if it's selected make the button pull from x array
-
-//replace the inner html of the image with the affirmation/mantra
-//  when the button is clicked, run a function that interpolates the innerHTML where the image is to return the affirmation/mantra
 

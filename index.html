@@ -13,22 +13,26 @@
     </h2>
     <form>
       <ul>
-        <label for="affirmation">
-          <input type="radio" class="affirmation" value="affirmation">
+        <div>
+          <input type="radio" name="choice" class="affirmation choice" value="affirmations">
+          <label for="affirmation" class="affirmation choice">
           affirmation
-        </label>
-        <label for="mantra">
-          <input type="radio" class="mantra" value="mantra">
+          </label>
+        </div>
+        <div>
+          <input type="radio" name="choice" class="mantra choice" value="mantras">
+          <label for="mantras" class="mantra choice"> 
           mantra
-        </label>
+          </label>
+        </div>
       </ul>
-      <button class="receive-message">
+      <button class="receive-message-button">
         Receive Message
       </button>
     </form>
-    <p class="output-message">
-      <img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg">
-    </p class="output-message">
+    <section class="output-box">
+        <img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg">
+    </section>
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
