@@ -15,6 +15,7 @@ var mantras = ["Breathing in, I send myself love. Breathing out, I send love to 
 
 receiveMessage.addEventListener('click', returnMessage)
 backBtn.addEventListener('click', removeOutput)
+deleteBtn.addEventListener('click', deletePhrase)
 
 //functions
 
@@ -52,4 +53,20 @@ function removeOutput() {
   addAltBtns();
 
   return outputBox.innerHTML =  '<img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg" alt="Meditation Icon" title="Meditation Icon"></img>';
+}
+
+function deletePhrase () {
+  var unwantedPhrase = outputBox.innerText
+
+  for (var i = 0; i < affirmations.length; i++) {
+    if (affirmations[i] === unwantedPhrase) {
+    affirmations.splice(i, 1);
+    } 
+  }
+
+  for (var i = 0; i < mantras.length; i++) {
+    if (mantras[i] === unwantedPhrase) {
+    mantras.splice(i, 1);
+    }
+  }
 }
