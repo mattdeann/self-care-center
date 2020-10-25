@@ -49,7 +49,4 @@ function addAltBtns() {
 }
 
 function removeOutput() {
-  addAltBtns();
-
-  return outputBox.innerHTML =  '<img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg" alt="Meditation Icon" title="Meditation Icon"></img>';
-}
+  
