@@ -1,5 +1,5 @@
 //query selectors
-var radioInputs = document.querySelectorAll('input[type="radio"]');
+var radioInputs = document.querySelectorAll('input[name="choice"]');
 var receiveMessage = document.querySelector(".receive-message-button");
 var outputBox = document.querySelector(".output-box")
 
@@ -8,6 +8,7 @@ var affirmations = ["I forgive myself and set myself free", "I believe I can be 
 var mantras = ["Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.", "Don’t let yesterday take up too much of today.", "Every day is a second chance.", "Tell the truth and love everyone.", "I am free from sadness.", "I am enough.", "In the beginning it is you, in the middle it is you and in the end it is you.", "I love myself.", "I am present now.", "Inhale the future, exhale the past.", "This too shall pass.", "Yesterday is not today.", "The only constant is change.", "Onward and upward.", "I am the sky, the rest is weather."]
 
 //event listeners
+
 receiveMessage.addEventListener('click', returnMessage)
 
 //functions
@@ -18,16 +19,15 @@ function getRandomIndex(array) {
 
 function returnMessage(event) {
   event.preventDefault();
-  for (var i = 0; i < radioInputs.length; i++) {
-    if (radioInputs[0].checked === false && radioInputs[1].checked === false) {
-      return alert('YOU DIDNT CLICK A BUTTON! I HAVE NO PURPOSE UNLESS YOU GIVE ME ONE HUMAN!!!')
-    } else if (radioInputs[i].value === 'affirmations') {
-        randomIndex = getRandomIndex(affirmations);
-      outputBox.innerText = affirmations[randomIndex];
-    } else if (radioInputs[i].value === 'mantras') {
-        randomIndex = getRandomIndex(mantras);
-      outputBox.innerText = mantras[randomIndex];
-    }
-  }
-}
 
+  for (var i = 0; i < radioInputs.length; i++) {
+    if (radioInputs[i].value === 'affirmations' && radioInputs[i].checked) {
+      return outputBox.innerText = affirmations[getRandomIndex(affirmations)];
+    } else if (radioInputs[i].value === 'mantras' && radioInputs[i].checked) {
+      return outputBox.innerText = mantras[getRandomIndex(mantras)];
+    }
+    revealButtons();
+  }
+
+  return alert('YOU DIDNT CLICK A BUTTON!!! I HAVE NO PURPOSE!!!')
+}
