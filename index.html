@@ -11,7 +11,7 @@
     <h2>
       Which type of message?
     </h2>
-    <form>
+    <form class="selection-form">
       <ul>
         <div>
           <input type="radio" name="choice" class="affirmation choice" value="affirmations">
@@ -30,6 +30,31 @@
         Receive Message
       </button>
     </form>
+    <form class="message-form hidden">
+      <p>
+        Add message to...
+      </p>
+      <section class="entry-types">
+        <div>
+          <input type="radio" name="entry-type" class="affirmation type" value="affirmations">
+          <label for="affirmation" class="affirmation choice">
+          <i>affirmation</i>
+          </label>
+        </div>
+        <div>
+          <input type="radio" name="entry-type" class="mantra type" value="mantras">
+          <label for="mantras" class="mantra choice"> 
+          <i>mantra</i>
+          </label>
+        </div>
+      </section>
+      <section class="message-input">
+        <input type="text" class="message-entry" placeholder="Enter your message here!">
+        <button class="add-message-btn btn" title="Display this now!">
+          Send it!
+        </button>
+      </section>
+    </form>
     <section class="alt-btns">
       <button class="back btn hidden" title="Clear message">
         Take me back!
@@ -41,7 +66,7 @@
     <section class="output-box">
         <img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg" alt="Meditation Icon" title="Meditation Icon">
     </section>
-    <button class="create btn" title="Make your own">
+    <button class="message-form-btn btn" title="Add a message">
       Add your own!
     </button>
     <script type="text/javascript" src="main.js"></script>
