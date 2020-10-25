@@ -64,6 +64,20 @@ form {
   border-radius: 10px;
 }
 
+.alt-btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 12vh;
+  width: 50vw;
+  min-height: 150px;
+  min-width: 550px;
+  max-width: 700px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
 ul {
   height: 2vh;
   width: 40vw;
@@ -125,14 +139,6 @@ ul {
 .meditation-icon {
   height: 7vh;
   width: 15vh;
-}
-
-.alt-btns {
-  min-height: 50px;
-  min-width: 400px;
-  font-size: 2px;
-  display: flex;
-  flex-direction: row;
 }
 
 .create {

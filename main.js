@@ -1,6 +1,7 @@
 //query selectors
 var selectionForm = document.querySelector('.selection-form');
 var messageForm = document.querySelector('.message-form');
+var altBtnsSection = document.querySelector('.alt-btns')
 var radioInputs = document.querySelectorAll('input[name="choice"]');
 var receiveMessageBtn = document.querySelector('.receive-message');
 var outputBox = document.querySelector('.output-box');
@@ -36,10 +37,10 @@ function returnMessage(event) {
 
   for (var i = 0; i < radioInputs.length; i++) {
     if (radioInputs[i].value === 'affirmations' && radioInputs[i].checked) {
-      addAltBtns();
+      showAltBtns();
       return outputBox.innerText = affirmations[getRandomIndex(affirmations)];
     } else if (radioInputs[i].value === 'mantras' && radioInputs[i].checked) {
-      addAltBtns();
+      showAltBtns();
       return outputBox.innerText = mantras[getRandomIndex(mantras)];
     }
   }
@@ -47,20 +48,18 @@ function returnMessage(event) {
   return alert('YOU DIDNT CLICK A BUTTON!!! I HAVE NO PURPOSE!!!')
 }
 
-function addAltBtns() {
-  backBtn.classList.remove('hidden');
-  deleteBtn.classList.remove('hidden');
-  receiveMessageBtn.classList.add('hidden');
+function showAltBtns() {
+  altBtnsSection.classList.remove('hidden');
+  selectionForm.classList.add('hidden');
 }
 
-function removeAltBtns() {
-  backBtn.classList.add('hidden');
-  deleteBtn.classList.add('hidden');
-  receiveMessageBtn.classList.remove('hidden');
+function hideAltBtns() {
+  altBtnsSection.classList.add('hidden');
 }
 
 function removeOutput() {
-  removeAltBtns();
+  hideAltBtns();
+  selectionForm.classList.remove('hidden');
 
   return outputBox.innerHTML =  '<img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg" alt="Meditation Icon" title="Meditation Icon"></img>';
 }
@@ -86,16 +85,15 @@ function deletePhrase () {
 }
 
 function showForm () {
-  selectionForm.classList.toggle('hidden');
-  messageForm.classList.toggle('hidden');
-  removeAltBtns();
-  removeOutput();
+  selectionForm.classList.add('hidden');
+  messageForm.classList.remove('hidden');
+  hideAltBtns();
 }
 
 function returnFromForm() {
   selectionForm.classList.remove('hidden');
   messageForm.classList.add('hidden');
-  addAltBtns();
+  showAltBtns();
 }
 
 function addMessage(event) {
@@ -108,7 +106,7 @@ function addMessage(event) {
       mantras.push(messageEntry.value);
     }
 
-    outputBox.innerText = messageEntry.value
+    outputBox.innerText = messageEntry.value;
 
     returnFromForm();
   }
