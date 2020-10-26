@@ -87,27 +87,54 @@ function deletePhrase () {
 function showForm () {
   selectionForm.classList.add('hidden');
   messageForm.classList.remove('hidden');
+
   hideAltBtns();
 }
 
 function returnFromForm() {
   selectionForm.classList.remove('hidden');
   messageForm.classList.add('hidden');
+
   showAltBtns();
+}
+
+function addToAffirmations() {
+  affirmations.push(messageEntry.value);
+  returnFromForm();
+  return outputBox.innerText = messageEntry.value;
+}
+
+function addToMantras() {
+  mantras.push(messageEntry.value);
+  returnFromForm();
+  return outputBox.innerText = messageEntry.value;
 }
 
 function addMessage(event) {
   event.preventDefault();
 
-  for (var i = 0; i < entryType.length; i++) {
+  for (var i = 0; i < radioInputs.length; i++) {
     if (entryType[i].value === 'affirmations' && entryType[i].checked) {
-      affirmations.push(messageEntry.value);
+      addToAffirmations();
+      return entryType[i].checked = false;
     } else if (entryType[i].value === 'mantras' && entryType[i].checked) {
-      mantras.push(messageEntry.value);
+      addToMantras();
+      return entryType[i].checked = false;
     }
-
-    outputBox.innerText = messageEntry.value;
-
-    returnFromForm();
   }
+
+  alert('Missing an input, plz fix.');
 }
+
+//   for (var i = 0; i < entryType.length; i++) {
+//     if (entryType[i].value === 'affirmations' && entryType[i].checked) {
+//       affirmations.push(messageEntry.value);
+//     } else if (entryType[i].value === 'mantras' && entryType[i].checked) {
+//       mantras.push(messageEntry.value);
+//     } 
+
+//     returnFromForm();
+
+//     return outputBox.innerText = messageEntry.value;
+//   }
+// }
