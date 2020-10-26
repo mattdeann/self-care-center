@@ -12,6 +12,7 @@ var messageFormBtn = document.querySelector('.message-form-btn');
 var entryType = document.querySelectorAll('input[name="entry-type"]');
 var messageEntry = document.querySelector('.message-entry');
 var addMessageBtn = document.querySelector('.add-message-btn');
+var meditationIcon = document.querySelector('.meditation-icon');
 
 
 var affirmations = ["I forgive myself and set myself free", "I believe I can be all that I want to be.", "I am in the process of becoming the best version of myself.", "I have the freedom & power to create the life I desire.", "I choose to be kind to myself and love myself unconditionally.", "My possibilities are endless.", "I am worthy of my dreams.", "I am enough.", "I deserve to be healthy and feel good.", "I am full of energy and vitality and my mind is calm and peaceful.", "Every day I am getting healthier and stronger.", "I honor my body by trusting the signals that it sends me.", "I manifest perfect health by making smart choices."]
@@ -20,7 +21,7 @@ var mantras = ["Breathing in, I send myself love. Breathing out, I send love to 
 
 //event listeners
 
-receiveMessageBtn.addEventListener('click', returnMessage)
+receiveMessageBtn.addEventListener('click', loadRandomMessage)
 backBtn.addEventListener('click', removeOutput)
 deleteBtn.addEventListener('click', deletePhrase)
 messageFormBtn.addEventListener('click', showForm)
@@ -32,9 +33,7 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function returnMessage(event) {
-  event.preventDefault();
-
+function returnMessage() {
   for (var i = 0; i < radioInputs.length; i++) {
     if (radioInputs[i].value === 'affirmations' && radioInputs[i].checked) {
       showAltBtns();
@@ -46,6 +45,12 @@ function returnMessage(event) {
   }
 
   return alert('YOU DIDNT CLICK A BUTTON!!! I HAVE NO PURPOSE!!!')
+}
+
+function loadRandomMessage(event) {
+  event.preventDefault();
+  meditationIcon.style.animationPlayState = 'initial';
+  setTimeout(returnMessage, 6500);
 }
 
 function showAltBtns() {
