@@ -109,6 +109,7 @@ function returnFromForm() {
   messageForm.classList.add('hidden');
   meditationBox.classList.add('hidden');
   showAltBtns();
+
 }
 
 function addToAffirmations() {
@@ -144,16 +145,3 @@ function loadInputMessage(event) {
   meditationIcon.classList.add("jiggle");
   setTimeout(addMessage, 6500);
 }
-
-//   for (var i = 0; i < entryType.length; i++) {
-//     if (entryType[i].value === 'affirmations' && entryType[i].checked) {
-//       affirmations.push(messageEntry.value);
-//     } else if (entryType[i].value === 'mantras' && entryType[i].checked) {
-//       mantras.push(messageEntry.value);
-//     } 
-
-//     returnFromForm();
-
-//     return outputBox.innerText = messageEntry.value;
-//   }
-// }
