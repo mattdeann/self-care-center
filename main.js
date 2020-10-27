@@ -98,7 +98,11 @@ function showForm () {
 function returnFromForm() {
   selectionForm.classList.remove('hidden');
   messageForm.classList.add('hidden');
+<<<<<<< Updated upstream
   showAltBtns();
+=======
+  meditationBox.classList.add('hidden');
+>>>>>>> Stashed changes
 }
 
 function addMessage(event) {
