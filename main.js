@@ -51,6 +51,7 @@ function returnMessage() {
 function loadRandomMessage(event) {
   event.preventDefault();
   meditationIcon.classList.add("jiggle");
+  tempDisableBtns();
   setTimeout(returnMessage, 6500);
 }
 
@@ -143,5 +144,19 @@ function addMessage() {
 function loadInputMessage(event) {
   event.preventDefault();
   meditationIcon.classList.add("jiggle");
+  tempDisableBtns()
   setTimeout(addMessage, 6500);
+}
+
+function tempDisableBtns() {
+  for (var i = 0; i < allBtns.length; i++) {
+    allBtns[i].disabled = true;
+    setTimeout (restartBtns, 6500);
+  }
+}
+
+function restartBtns() {
+  for (var i = 0; i < allBtns.length; i++) {
+    allBtns[i].disabled = false;
+  }
 }
