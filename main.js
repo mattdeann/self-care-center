@@ -109,8 +109,6 @@ function returnFromForm() {
   outputBox.classList.remove('hidden');
   messageForm.classList.add('hidden');
   meditationBox.classList.add('hidden');
-  showAltBtns();
-
 }
 
 function addToAffirmations() {
