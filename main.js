@@ -12,6 +12,7 @@ var messageFormBtn = document.querySelector('.message-form-btn');
 var entryType = document.querySelectorAll('input[name="entry-type"]');
 var messageEntry = document.querySelector('.message-entry');
 var addMessageBtn = document.querySelector('.add-message-btn');
+var meditationBox = document.querySelector('.meditation-box');
 var meditationIcon = document.querySelector('.meditation-icon');
 
 
@@ -25,7 +26,7 @@ receiveMessageBtn.addEventListener('click', loadRandomMessage)
 backBtn.addEventListener('click', removeOutput)
 deleteBtn.addEventListener('click', deletePhrase)
 messageFormBtn.addEventListener('click', showForm)
-addMessageBtn.addEventListener('click', addMessage)
+addMessageBtn.addEventListener('click', loadInputMessage)
 
 //functions
 
@@ -36,11 +37,11 @@ function getRandomIndex(array) {
 function returnMessage() {
   for (var i = 0; i < radioInputs.length; i++) {
     if (radioInputs[i].value === 'affirmations' && radioInputs[i].checked) {
-      showAltBtns();
-      return outputBox.innerText = affirmations[getRandomIndex(affirmations)];
+      formatRandomOutput();
+      return outputBox.innerHTML =`<p class="output">${affirmations[getRandomIndex(affirmations)]}</div>` ;
     } else if (radioInputs[i].value === 'mantras' && radioInputs[i].checked) {
-      showAltBtns();
-      return outputBox.innerText = mantras[getRandomIndex(mantras)];
+      formatRandomOutput();
+      return outputBox.innerText += mantras[getRandomIndex(mantras)];
     }
   }
 
@@ -49,13 +50,15 @@ function returnMessage() {
 
 function loadRandomMessage(event) {
   event.preventDefault();
-  meditationIcon.style.animationPlayState = 'initial';
+  meditationIcon.classList.add("jiggle");
   setTimeout(returnMessage, 6500);
 }
 
-function showAltBtns() {
-  altBtnsSection.classList.remove('hidden');
+function formatRandomOutput() {
   selectionForm.classList.add('hidden');
+  meditationBox.classList.add("hidden");
+  outputBox.classList.remove("hidden");
+  altBtnsSection.classList.remove('hidden');
 }
 
 function hideAltBtns() {
@@ -64,9 +67,11 @@ function hideAltBtns() {
 
 function removeOutput() {
   hideAltBtns();
+  outputBox.classList.add("hidden");
+  altBtnsSection.classList.add('hidden');
   selectionForm.classList.remove('hidden');
-
-  return outputBox.innerHTML =  '<img class="return-message meditation-icon" src="/Users/matthewdean/turing/1module/projects/self-care-center/assets/meditate.svg" alt="Meditation Icon" title="Meditation Icon"></img>';
+  meditationBox.classList.remove("hidden");
+  meditationIcon.classList.remove("jiggle");
 }
 
 function deletePhrase () {
@@ -91,33 +96,36 @@ function deletePhrase () {
 
 function showForm () {
   selectionForm.classList.add('hidden');
+  outputBox.classList.add('hidden');
   messageForm.classList.remove('hidden');
-
+  meditationBox.classList.remove('hidden');
+  meditationIcon.classList.remove("jiggle");
   hideAltBtns();
 }
 
 function returnFromForm() {
-  selectionForm.classList.remove('hidden');
+  altBtnsSection.classList.remove('hidden');
+  outputBox.classList.remove('hidden');
   messageForm.classList.add('hidden');
-
+  meditationBox.classList.add('hidden');
   showAltBtns();
 }
 
 function addToAffirmations() {
   affirmations.push(messageEntry.value);
+  outputBox.innerText = messageEntry.value;
   returnFromForm();
-  return outputBox.innerText = messageEntry.value;
+  return 
 }
 
 function addToMantras() {
   mantras.push(messageEntry.value);
+  outputBox.innerText = messageEntry.value;
   returnFromForm();
-  return outputBox.innerText = messageEntry.value;
+  return 
 }
 
-function addMessage(event) {
-  event.preventDefault();
-
+function addMessage() {
   for (var i = 0; i < radioInputs.length; i++) {
     if (entryType[i].value === 'affirmations' && entryType[i].checked) {
       addToAffirmations();
@@ -129,6 +137,12 @@ function addMessage(event) {
   }
 
   alert('Missing an input, plz fix.');
+}
+
+function loadInputMessage(event) {
+  event.preventDefault();
+  meditationIcon.classList.add("jiggle");
+  setTimeout(addMessage, 6500);
 }
 
 //   for (var i = 0; i < entryType.length; i++) {
