@@ -99,10 +99,6 @@ ul {
   flex-direction: row;
 }
 
-.message-input {
-
-}
-
 .message-entry {
   min-height: 30px;
   min-width: 300px;
