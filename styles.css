@@ -155,8 +155,9 @@ ul {
 }
 
 .meditation-icon {
-  height: 7vh;
-  width: 15vh;
+  width: 7vw;
+  max-width: 100px;
+  min-width: 50px;
 }
 
 .jiggle {
