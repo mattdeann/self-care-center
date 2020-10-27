@@ -97,10 +97,10 @@ function showForm () {
 }
 
 function returnFromForm() {
-  selectionForm.classList.remove('hidden');
+  meditationBox.classList.add('hidden');
   messageForm.classList.add('hidden');
-
-  showAltBtns();
+  selectionForm.classList.remove('hidden');
+  outputBox.classList.remove('hidden');
 }
 
 function addToAffirmations() {
